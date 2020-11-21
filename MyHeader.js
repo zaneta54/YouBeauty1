@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Header,Icon,Badge } from 'react-native-elements';
 import { View, Text, StyeSheet ,Alert} from 'react-native';
-
+import {DrawerActions} from '@react-navigation/native';
 import db from '../config'
 
 export default class MyHeader extends React.Component{
@@ -29,7 +29,7 @@ export default class MyHeader extends React.Component{
   render(){
     return(
         <Header
-         // leftComponent={<Icon name='bars' type='font-awesome' color='#696969'  onPress={() => this.props.navigation.toggleDrawer()}/>}
+         leftComponent={<Icon name='bars' type='font-awesome' color='#696969'  onPress={() => this.props.navigation.dispatch(DrawerActions.toggleDrawer())}/>}
           centerComponent={{ text: this.props.title, style: { color: '#90A5A9', fontSize:20,fontWeight:"bold", } }}
           rightComponent={<this.BellIconWithBadge {...this.props}/>}
           backgroundColor = "#eaf8fe"
